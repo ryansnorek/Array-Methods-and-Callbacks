@@ -46,12 +46,10 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(array, callback) {
-    return callback(array).map(el => el.Year)
+function getYears(array, getFinalsCB) {
+    return getFinalsCB(array).map(el => el.Year);
 }
-
-
-console.log(getYears(fifaData, getFinals))
+// console.log(getYears(fifaData, getFinals))
 
 
 
@@ -63,9 +61,16 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(arr, callback) {
+    return callback(arr).map(el => {
+        if (el['Home Team Goals'] > el['Away Team Goals']) {
+            return el['Home Team Name'];
+        }
+        else return el['Away Team Name'];
+    })
 }
+
+console.log(getWinners(fifaData, getFinals));
 
 
 
@@ -79,11 +84,16 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(arr, getYearsCB, getWinnersCB) {
+
+    return 
+    
+
 }
 
 
+
+// return `In ${}, ${} won the world cup!`
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
@@ -95,8 +105,10 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(getFinalsCB, data) {
+   const finals = getFinalsCB(data);
+
+   
 }
 
 
