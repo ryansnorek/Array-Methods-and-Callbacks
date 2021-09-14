@@ -83,16 +83,17 @@ Use the higher-order function getWinnersByYear to do the following:
 
 hint: the strings returned need to exactly match the string in step 4.
  */
+// map
+// index = year
+// item = 
 
 function getWinnersByYear(array, getYearsCB, getWinnersCB) {
     const years = getYearsCB(array, getFinals);
     const winners = getWinnersCB(array, getFinals);
-    const arrayOfStrings = [];
 
-    for (let i = 0; i < years.length; i++) {
-        arrayOfStrings.push(`In ${years[i]}, ${winners[i]} won the world cup!`)
-    }
-    return arrayOfStrings;
+    return  array.map((item, i) => {
+        return `In ${years[i]}, ${winners[i]} won the world cup!`
+    })
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -111,7 +112,6 @@ function getAverageGoals(getFinalsCB) {
         return x + (y['Home Team Goals'] + y['Away Team Goals']);
     }, 0) / getFinalsCB.length;
 
-    
     return average.toFixed(2)
 }
 
@@ -128,8 +128,11 @@ Hint: use `.reduce` */
 
 function getCountryWins(data, teamInitials) {
 
+  
+
 }
 
+// console.log(getCountryWins(fifaData,'SWE'))
 
 
 
